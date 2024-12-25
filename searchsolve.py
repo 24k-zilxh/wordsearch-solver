@@ -21,16 +21,24 @@ fs=query[0]
 
 def get_2d_coords(lst,tgt):
     cod=[]
-    for row in lst:
-        cx=lst.index(row)
-        for cell in row:
-            cy=row.index(cell)
-            if cell==tgt: cod.append([cx,cy])
-            else: pass
+    for x in range(0,len(lst)):
+        for p in range(0,len(lst[x])):
+            if tgt==lst[x][p]: cod.append((x,p)) 
     return cod
 
-print(get_2d_coords(search,fs))
+startpoints = get_2d_coords(search, fs)
+print(startpoints)
+complete=False
 
-print("\n\n___________________________________________________________")
-for popo in search:
-    print(popo)
+def up(cds): # cds is the tuple of coordinates
+    print(tuple(cds[0]-1,cds[1]))
+    return tuple(cds[0]-1,cds[1])
+
+for i in range(0,len(startpoints)):
+    up(startpoints[i])
+
+
+# while complete != True:
+#    # try each direction listed in my notes
+#    pass #for now 
+
