@@ -1,12 +1,17 @@
-# Start of program
+"""
+    Start of program
+    If there are multiple instances of a word it will find the first occuring incidence ONLY
+    In this program, X and Y are flipped, so instead of X,Y the notation is Y,X
+"""
 
+global search
 search=[]
 
 rows=int(input("How many rows> "))
 cols=int(input("How many columns> "))
 
 for x in range(0,rows): # Filling up rows with data, then pushing them to the SEARCH list
-    print(f"entering the info for row number: {x}")
+    print(f"entering the info for row number: {x+1}")
     o=[]
     for p in range(0,cols):
         a=input("letter> ")
@@ -19,18 +24,73 @@ query=list(query)
 
 fs=query[0]
 
-def get_2d_coords(lst,tgt):
+def get_2d_coords(lst,tgt):#lst is the search, tgt is the target as a string
     cod=[]
-    for row in lst:
-        cx=lst.index(row)
-        for cell in row:
-            cy=row.index(cell)
-            if cell==tgt: cod.append([cx,cy])
-            else: pass
+    for x in range(0,len(lst)):
+        for p in range(0,len(lst[x])):
+            if tgt==lst[x][p]: cod.append((x,p)) 
     return cod
+     
+startpoints = get_2d_coords(search, fs)
+complete=False
 
-print(get_2d_coords(search,fs))
+def up(tup): # this works
+    if tup[0]-1<0: return None
+    p=search[tup[0]-1]
+    return p[tup[1]]  # returning the letter that is above the given coordinate
 
-print("\n\n___________________________________________________________")
-for popo in search:
-    print(popo)
+def down(tup): # this works
+    if tup[0]-1<0: return None
+    p=search[tup[0]+1]
+    return p[tup[1]]  # returning the letter that is above the given coordinate
+
+def left(tup): 
+    if tup[0]-1<0: return None
+    p=search[tup[0]]
+    try: return p[tup[1]-1]  # returning the letter that is above the given coordinate
+    except IndexError: return None
+
+def right(tup): 
+    p=search[tup[0]]
+    try: return p[tup[1]+1]   # returning the letter that is above the given coordinate
+    except IndexError: return None
+
+def updiagl(tup):
+    if tup[1]-1 <0: return None
+    if tup[0]-1 <0: return None
+    try: return search[tup[0]-1][tup[1]-1]
+    except IndexError: return None
+
+def updiagr(tup):
+    if tup[1]+1 <0: return None
+    if tup[0]-1 <0: return None
+    try: return search[tup[0]-1][tup[1]+1]
+    except IndexError: return None
+
+def downdiagr(tup):
+    if tup[1]+1 <0: return None
+    if tup[0]+1 <0: return None
+    try: return search[tup[0]+1][tup[1]+1]
+    except IndexError: return None
+
+def downdiagl(tup):
+    if tup[1]+1 <0: return None
+    if tup[0]-1 <0: return None
+    try: return search[tup[0]+1][tup[1]-1]
+    except IndexError: return None
+
+print(f"updiagleft {updiagl((0,1))}")
+print(f"updiagright {updiagr((0,1))}")
+print(f"downdiagleft {downdiagl((1,1))}")
+print(f"downdiagright {downdiagr((1,1))}")
+
+
+def attempt(func,c):#function is the name of said function, and c is the coordinate tuple
+   # do the func the amount of times the word is long
+    for i in range(0,len(query)):
+        res=[]
+        res.append(func(c))
+        
+            
+              
+    
