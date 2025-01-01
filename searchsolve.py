@@ -11,7 +11,7 @@ rows=int(input("How many rows> "))
 cols=int(input("How many columns> "))
 
 for x in range(0,rows): # Filling up rows with data, then pushing them to the SEARCH list
-    print(f"entering the info for row number: {x}")
+    print(f"entering the info for row number: {x+1}")
     o=[]
     for p in range(0,cols):
         a=input("letter> ")
@@ -55,7 +55,35 @@ def right(tup):
     try: return p[tup[1]+1]   # returning the letter that is above the given coordinate
     except IndexError: return None
 
-print(right((1,2)))
+def updiagl(tup):
+    if tup[1]-1 <0: return None
+    if tup[0]-1 <0: return None
+    try: return search[tup[0]-1][tup[1]-1]
+    except IndexError: return None
+
+def updiagr(tup):
+    if tup[1]+1 <0: return None
+    if tup[0]-1 <0: return None
+    try: return search[tup[0]-1][tup[1]+1]
+    except IndexError: return None
+
+def downdiagr(tup):
+    if tup[1]+1 <0: return None
+    if tup[0]+1 <0: return None
+    try: return search[tup[0]+1][tup[1]+1]
+    except IndexError: return None
+
+def downdiagl(tup):
+    if tup[1]+1 <0: return None
+    if tup[0]-1 <0: return None
+    try: return search[tup[0]+1][tup[1]-1]
+    except IndexError: return None
+
+print(f"updiagleft {updiagl((0,1))}")
+print(f"updiagright {updiagr((0,1))}")
+print(f"downdiagleft {downdiagl((1,1))}")
+print(f"downdiagright {downdiagr((1,1))}")
+
 
 def attempt(func,c):#function is the name of said function, and c is the coordinate tuple
    # do the func the amount of times the word is long
