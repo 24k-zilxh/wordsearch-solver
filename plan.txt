@@ -11,14 +11,18 @@
 	L-DIAG-Down = subtract 1 from X, add 1 to Y
 	
 	_____________-
-(X and Y are flipped I have no idea why)
+
+(X and Y are flipped because the ROWS are the Y axis.)
 
 a c b (0,1)
 b v c (1,2) #finding the word BRAVO letter (B)
 c a b (2,0)
 
+Structure of test data:
 
+inputs into rows/cols:
+    a b c 
+    d e f 
+    g h i  
 
-a b c 
-d e f 
-g h i  
+Target word = "ec"

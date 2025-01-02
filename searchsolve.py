@@ -33,7 +33,7 @@ def get_2d_coords(lst,tgt):#lst is the search, tgt is the target as a string
      
 startpoints = get_2d_coords(search, fs)
 
-print(startpoints)
+print(f"startpoints {startpoints}")
 def up(tup): # this works 
     if tup[0]-1<0: return None
     p=search[tup[0]-1]
@@ -42,6 +42,7 @@ def up(tup): # this works
 def down(tup): # this works
     if tup[0]-1<0: return None
     p=search[tup[0]+1]
+    print(f"x {p[tup[1]]} |||| y {tup[0]+1}")
     return p[tup[1]]  
 
 def left(tup): # this works
@@ -85,14 +86,14 @@ def downdiagl(tup): # this works
 # print(f"downdiagright {downdiagr((1,1))}")
 
 
-def attempt(cord): # cord is a SINGLE TUPLE of coordinates for me
+def attempt(cord): # cord is a SINGLE TUPLE of coordinates for the first letter
     found=False
-    trails=[[],[],[],[],[],[],[],[]]
-    dirs=tuple()
+    trails=[[],[],[],[],[],[],[],[]] 
     
     while found==False:
         for x in startpoints:
-            for y in range(0,len(query)):
+            for y in range(1,len(query)): # This function takes a step in each direction for X letters, X being the length of the query
+                print("Started taking a step in each direction")
                 trails[0].append(up(cord))
                 trails[1].append(down(cord))
                 trails[2].append(left(cord))
@@ -101,5 +102,10 @@ def attempt(cord): # cord is a SINGLE TUPLE of coordinates for me
                 trails[5].append(updiagr(cord))
                 trails[6].append(downdiagl(cord))
                 trails[7].append(downdiagr(cord))
+            
+        found=True
+    return trails
 
-for i in startpoints: attempt(i)
+
+print(startpoints)
+for i in startpoints: print(attempt(i))
