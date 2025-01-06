@@ -1,3 +1,5 @@
+
+
 This program efficiently solves word search puzzles.
 
 Written in Python 3.12, it uses user-defined functions and methods to get the job done!
