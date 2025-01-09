@@ -5,90 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Search Program</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-
-        #word-search {
-            margin-top: 20px;
-        }
-
-        #word-search div {
-            display: flex;
-        }
-
-        #word-search div span {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #ccc;
-            margin: 2px;
-            font-size: 18px;
-        }
-
-        .highlight {
-            animation: highlightAnimation 1s infinite alternate;
-            background-color: yellow;
-        }
-
-        @keyframes highlightAnimation {
-            0% { background-color: yellow; }
-            100% { background-color: orange; }
-        }
-    </style>
+    <link rel="stylesheet" href="wordsearcher.css">
+  
 </head>
 <body onload="brython()">
     <div class="container">
@@ -240,6 +158,10 @@
         document["resetBtn"].bind("click", reset)
         document["addRowBtn"].bind("click", addRow)
         document["findWordBtn"].bind("click", findWord)
+    </script>
+    <script>
+    // Made By CircuitCipher9261
+    // Python by 24k-zilxh
     </script>
 </body>
 </html>
