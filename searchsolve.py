@@ -3,6 +3,7 @@
     If there are multiple instances of a word it will find the first occuring incidence ONLY
     In this program, X and Y are flipped, so instead of X,Y the notation is Y,X
 """
+from browser import document
 
 global search
 search=[]
@@ -13,10 +14,8 @@ cols=int(input("How many columns> "))
 for x in range(0,rows): # Filling up rows with data, then pushing them to the SEARCH list
     o=str(input("All letters in the row, press the button to add row (no spaces) > "))
     search.append(list(o)[:cols])
-while True: print(search)
-num=int(input("how many words: "))
 
-for pio in range(0,num):
+while True:
     query=input("What word would you like to find? ")
     query=query.lower()
     query=list(query)
