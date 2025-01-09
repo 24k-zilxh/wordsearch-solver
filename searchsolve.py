@@ -129,7 +129,7 @@ for x in startpoints: # iterating through each starting point, getting the first
                 dir= 'bottom right'
                 lst=trails[7]
             
-            print(f'Start from coordinate {x} going {dir}')            
+            print(f"Start from coordinate {x} going {dir}\nYou're welcome!")            
         
         found=False    
         
