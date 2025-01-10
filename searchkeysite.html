@@ -45,10 +45,7 @@
 	for x in range(0,rows): # Filling up rows with data, then pushing them to the SEARCH list
 	    o=str(input("All letters in the row, press the button to add row (no spaces) > "))
 	    search.append(list(o)[:cols])
-	while True: print(search)
-	num=int(input("how many words: "))
-	
-	for pio in range(0,num):
+	while True: 
 	    query=input("What word would you like to find? ")
 	    query=query.lower()
 	    query=list(query)
